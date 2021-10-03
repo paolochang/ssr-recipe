@@ -2,7 +2,6 @@ import React from "react";
 
 const User = ({ user }) => {
   const { email, name, username } = user;
-  console.log(email, name, username);
   return (
     <div>
       <h1>

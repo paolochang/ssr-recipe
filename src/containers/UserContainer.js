@@ -5,14 +5,11 @@ import { usePreloader } from "../lib/PreloadContext";
 import { getUser } from "../modules/users";
 
 const UserContainer = ({ id }) => {
-  console.log("UserContainer", id);
   const user = useSelector((state) => state.users.user);
   const dispatch = useDispatch();
-  console.log("User:", user);
 
   usePreloader(() => dispatch(getUser(id)));
   useEffect(() => {
-    console.log("useEffect:", user);
     if (user && user.id === parseInt(id, 10)) return;
     dispatch(getUser(id));
   }, [dispatch, id, user]);
